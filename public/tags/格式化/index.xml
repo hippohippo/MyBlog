@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>格式化 on MoonLightWatch的博客</title>
+    <link>http://blog.moonlightwatch.me/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96/</link>
+    <description>Recent content in 格式化 on MoonLightWatch的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>golang 的时间格式化操作</title>
+      <link>http://blog.moonlightwatch.me/post/golang-time-format/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/golang-time-format/</guid>
+      <description>怎么做 简而言之 time.Now().Format(&amp;quot;2006-01-02 15:04:05&amp;quot;)  你将会获得如同 yyyy-MM-dd hh-mm-ss 这样的输出。
+还可以 在 format.go 的源码中我们可以找到一些预定的格式，源码摘抄如下：
+const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quot;Mon Jan _2 15:04:05 MST 2006&amp;quot; RubyDate = &amp;quot;Mon Jan 02 15:04:05 -0700 2006&amp;quot; RFC822 = &amp;quot;02 Jan 06 15:04 MST&amp;quot; RFC822Z = &amp;quot;02 Jan 06 15:04 -0700&amp;quot; // RFC822 with numeric zone RFC850 = &amp;quot;Monday, 02-Jan-06 15:04:05 MST&amp;quot; RFC1123 = &amp;quot;Mon, 02 Jan 2006 15:04:05 MST&amp;quot; RFC1123Z = &amp;quot;Mon, 02 Jan 2006 15:04:05 -0700&amp;quot; // RFC1123 with numeric zone RFC3339 = &amp;quot;2006-01-02T15:04:05Z07:00&amp;quot; RFC3339Nano = &amp;quot;2006-01-02T15:04:05.</description>
+    </item>
+    
+  </channel>
+</rss>

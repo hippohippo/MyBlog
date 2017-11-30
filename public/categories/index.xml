@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on MoonLightWatch的博客</title>
+    <link>http://blog.moonlightwatch.me/categories/</link>
+    <description>Recent content in Categories on MoonLightWatch的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Apache</title>
+      <link>http://blog.moonlightwatch.me/categories/apache/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/categories/apache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://blog.moonlightwatch.me/categories/docker/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/categories/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://blog.moonlightwatch.me/categories/golang/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/categories/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mongodb</title>
+      <link>http://blog.moonlightwatch.me/categories/mongodb/</link>
+      <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/categories/mongodb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://blog.moonlightwatch.me/categories/python/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/categories/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

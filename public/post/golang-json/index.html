@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://blog.moonlightwatch.me/index.xml" rel="alternate" type="application/rss+xml" title="MoonLightWatch的博客" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>在 golang 中使用 Json | MoonLightWatch的博客</title>
+  </head>
+  <body>
+    <div id="wrap">
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-98480829-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://blog.moonlightwatch.me/">MoonLightWatch的博客</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>在 golang 中使用 Json</h1>
+      <div class="article-meta">
+        <span class="posttime">2017/05/10</span>
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/json">json</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+<div id="share-buttons">
+  <ul>
+    
+    <li>
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <div class="g-plusone" data-size="medium"></div>
+    </li>
+    
+    
+    <li>
+      <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+      <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    </li>
+    
+    
+    <li>
+        <a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share"></a>
+        <script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
+    </li>
+    
+  </ul>
+</div>
+
+
+  </header>
+  <div class="content">
+    
+
+<h2 id="序列化">序列化</h2>
+
+<p>序列化对象将使用 <a href="https://golang.org/pkg/encoding/json/">encoding/json</a> 中的 <a href="https://golang.org/pkg/encoding/json/#Marshal">Marshal</a> 函数。</p>
+
+<p>函数原型为：<code>func Marshal(v interface{}) ([]byte, error)</code></p>
+
+<p>以下是官网给出的例子：</p>
+
+<pre><code>package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+    &quot;os&quot;
+)
+
+func main() {
+    type ColorGroup struct {
+        ID     int
+        Name   string
+        Colors []string
+    }
+    group := ColorGroup{
+        ID:     1,
+        Name:   &quot;Reds&quot;,
+        Colors: []string{&quot;Crimson&quot;, &quot;Red&quot;, &quot;Ruby&quot;, &quot;Maroon&quot;},
+    }
+    b, err := json.Marshal(group)
+    if err != nil {
+        fmt.Println(&quot;error:&quot;, err)
+    }
+    os.Stdout.Write(b)
+}
+</code></pre>
+
+<p>需要注意的是：json.Marshal返回了[]byte类型，通常情况下，需要将其转换为string类型使用。</p>
+
+<h2 id="反序列化">反序列化</h2>
+
+<p>反序列化对象将使用 encoding/json 中的 Unmarshal 函数。</p>
+
+<p>函数原型为：<code>func Unmarshal(data []byte, v interface{}) error</code></p>
+
+<p>以下是官网给出的例子：</p>
+
+<pre><code>package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+)
+
+func main() {
+    var jsonBlob = []byte(`[
+        {&quot;Name&quot;: &quot;Platypus&quot;, &quot;Order&quot;: &quot;Monotremata&quot;},
+        {&quot;Name&quot;: &quot;Quoll&quot;,    &quot;Order&quot;: &quot;Dasyuromorphia&quot;}
+    ]`)
+    type Animal struct {
+        Name  string
+        Order string
+    }
+    var animals []Animal
+    err := json.Unmarshal(jsonBlob, &amp;animals)
+    if err != nil {
+        fmt.Println(&quot;error:&quot;, err)
+    }
+    fmt.Printf(&quot;%+v&quot;, animals)
+}
+</code></pre>
+
+<p>在反序列化时，有可能不知道Json数据的具体类型，那应该怎么办呢？</p>
+
+<p>其实，观察json.Unmarshal的函数原型可以看到，其第二个参数是一个interface。</p>
+
+<p>事实上，你可以传入一个interface对象的指针，反序列化函数依然会填充这个对象。并且这个对象可以被转换成为<code>map[string]interface{}</code>这样的类型或者<code>[]interface{}</code>这样的类型，这取决于Json的内容。</p>
+
+<p>于是，我们便有了在不知道Json数据具体类型的情况下，解析Json内容的方法。</p>
+
+<p>代码如下：</p>
+
+<pre><code>package main
+
+import (
+    &quot;encoding/json&quot;
+    &quot;fmt&quot;
+)
+
+func main() {
+    var jsonBlob = []byte(`[
+        {&quot;Name&quot;: &quot;Platypus&quot;, &quot;Order&quot;: &quot;Monotremata&quot;},
+        {&quot;Name&quot;: &quot;Quoll&quot;,    &quot;Order&quot;: &quot;Dasyuromorphia&quot;}
+    ]`)
+
+    var jsonObject interface{}
+    err := json.Unmarshal(jsonBlob, &amp;jsonObject)
+    if err != nil {
+        fmt.Println(&quot;error:&quot;, err)
+    }
+    animals := jsonObject.([]interface{})
+    for i := 0; i &lt; len(animals); i++ {
+        animalObject := animals[i]
+        animalMap := animalObject.(map[string]interface{})
+        fmt.Println(animalMap[&quot;Name&quot;])
+        fmt.Println(animalMap[&quot;Order&quot;])
+    }
+}
+</code></pre>
+
+<p>如上，我们可以将反序列化出的对象，递归地进行类型转换，转换为<code>[]interface{}</code>或者<code>map[string]interface{}</code>，这样就能一层层地解析Json的内容了。</p>
+
+<p>当然，以上只是举例，证明可以通过一些手段解析未知结构的Json。为了正确解析未知结构的Json内容，你可能需要为解析过程添加一些判断，如解析出的对象的类型需要二选一，又如解析出的map类型中键的存在性等等。</p>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/json">json</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      
+      
+<div id="share-buttons">
+  <ul>
+    
+    <li>
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <div class="g-plusone" data-size="medium"></div>
+    </li>
+    
+    
+    <li>
+      <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+      <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    </li>
+    
+    
+    <li>
+        <a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share"></a>
+        <script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
+    </li>
+    
+  </ul>
+</div>
+
+
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">Next</span>
+          <a href="http://blog.moonlightwatch.me/post/pip-install-error/">pip 安装时 UnicodeDecodeError 错误的解决方法</a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </footer>
+</div>
+        </div>
+        <div class="sidebar">
+  
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>Author</span>
+    </div>
+    <div id="author">
+      <span>MoonLightWatch</span>
+      <div>
+        
+        
+        <a href="https://github.com/moonlightwatch"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>Categories</span>
+    </div>
+    <div class="categories">
+      <ul>
+        
+        <li>
+          <a href="/categories/apache"><span></span>apache (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/docker"><span></span>docker (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/golang"><span></span>golang (3)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/mongodb"><span></span>mongodb (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/python"><span></span>python (1)</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>RSS</span>
+    </div>
+    <div id="rss">
+      <a href="http://blog.moonlightwatch.me/index.xml" type="application/rss+xml" target="_blank">
+        <i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <footer>
+        <div id="site-footer-wrap">
+          <div id="site-footer">
+            <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+            <span>
+              
+              Copyright (c) 2017, <a href="http://blog.moonlightwatch.me/">MoonLightWatch的博客</a>
+              
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

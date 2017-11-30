@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Httpd on MoonLightWatch的博客</title>
+    <link>http://blog.moonlightwatch.me/tags/httpd/</link>
+    <description>Recent content in Httpd on MoonLightWatch的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/tags/httpd/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>安装ApacheWeb服务器 —— httpd</title>
+      <link>http://blog.moonlightwatch.me/post/install-httpd/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/install-httpd/</guid>
+      <description>环境 CentOS 7.x
+(嗯……好像就只有这些了)
+安装 本着能通过 yum 绝不编译的心理，我使用如下命令安装：
+yum install httpd -y  嗯……就好了……
+启动 正常启动(全默认配置)：
+systemctl start httpd  docker 容器中启动：
+httpd  (就是只写服务名称就行……)
+解决问题 你有可能会遇到这样的错误：
+AH00558: httpd: Could not reliably determine the server&#39;s fully qualified domain name, using 172.18.0.2. Set the &#39;ServerName&#39; directive globally to suppress this message  服务器表示他不知道应该如何确定服务的完全限定域名，要你设置 ServerName 来阻止此消息。
+也就是说，去配置文件里把 ServerName 设置一下就行。
+打开 &amp;ldquo;/etc/httpd/conf/httpd.conf&amp;rdquo; 看看
+vim /etc/httpd/conf/httpd.conf  请注意你要是用root以外的用户进行修改操作，则需要在命令前加 sudo ，毕竟 etc 下的文件不是你想改就能改的~
+你会在配置文件中找到如下一段内容：</description>
+    </item>
+    
+  </channel>
+</rss>

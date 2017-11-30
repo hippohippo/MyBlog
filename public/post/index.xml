@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on MoonLightWatch的博客</title>
+    <link>http://blog.moonlightwatch.me/post/</link>
+    <description>Recent content in Posts on MoonLightWatch的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang Json 反序列化 UTF-8 字符串遇到的错误</title>
+      <link>http://blog.moonlightwatch.me/post/golang-json-error/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/golang-json-error/</guid>
+      <description>过程  从 http POST 数据中读取字节数据 将字节数据传入 json.Unmarshal 函数直接反序列化 遇到错误 invalid character &#39;ï&#39; looking for beginning of value  其中 http POST 数据是正常的Json，使用 fmt.Println 能够正常输出，并没有错误中提到的神奇字符
+原因 在UTF-8字符转中，有可能会有一个BOM（字节顺序标记）（参见维基百科）
+如果你直接输出 POST 的字节数据，会在头部发现 239 187 191 这三个字节，这个就是UTF-8的字节顺序标记。
+但是要注意，这个字节顺序标记并不是必须的，有的 UTF-8 数据就是不带这个 BOM 的
+解决 既然字节数据头部会有几个非数据字节，那么去掉就好了。
+... body = bytes.TrimPrefix(body, []byte(&amp;quot;\xef\xbb\xbf&amp;quot;)) // Or []byte{239, 187, 191} ...  参见 Stackoverflow 中的问题：Got error &amp;ldquo;invalid character &amp;lsquo;ï&amp;rsquo; looking for beginning of value” from json.Unmarshal
+最后 果然还是面向 Stackoverflow 编程</description>
+    </item>
+    
+    <item>
+      <title>golang 的时间格式化操作</title>
+      <link>http://blog.moonlightwatch.me/post/golang-time-format/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/golang-time-format/</guid>
+      <description>怎么做 简而言之 time.Now().Format(&amp;quot;2006-01-02 15:04:05&amp;quot;)  你将会获得如同 yyyy-MM-dd hh-mm-ss 这样的输出。
+还可以 在 format.go 的源码中我们可以找到一些预定的格式，源码摘抄如下：
+const ( ANSIC = &amp;quot;Mon Jan _2 15:04:05 2006&amp;quot; UnixDate = &amp;quot;Mon Jan _2 15:04:05 MST 2006&amp;quot; RubyDate = &amp;quot;Mon Jan 02 15:04:05 -0700 2006&amp;quot; RFC822 = &amp;quot;02 Jan 06 15:04 MST&amp;quot; RFC822Z = &amp;quot;02 Jan 06 15:04 -0700&amp;quot; // RFC822 with numeric zone RFC850 = &amp;quot;Monday, 02-Jan-06 15:04:05 MST&amp;quot; RFC1123 = &amp;quot;Mon, 02 Jan 2006 15:04:05 MST&amp;quot; RFC1123Z = &amp;quot;Mon, 02 Jan 2006 15:04:05 -0700&amp;quot; // RFC1123 with numeric zone RFC3339 = &amp;quot;2006-01-02T15:04:05Z07:00&amp;quot; RFC3339Nano = &amp;quot;2006-01-02T15:04:05.</description>
+    </item>
+    
+    <item>
+      <title>安装ApacheWeb服务器 —— httpd</title>
+      <link>http://blog.moonlightwatch.me/post/install-httpd/</link>
+      <pubDate>Wed, 12 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/install-httpd/</guid>
+      <description>环境 CentOS 7.x
+(嗯……好像就只有这些了)
+安装 本着能通过 yum 绝不编译的心理，我使用如下命令安装：
+yum install httpd -y  嗯……就好了……
+启动 正常启动(全默认配置)：
+systemctl start httpd  docker 容器中启动：
+httpd  (就是只写服务名称就行……)
+解决问题 你有可能会遇到这样的错误：
+AH00558: httpd: Could not reliably determine the server&#39;s fully qualified domain name, using 172.18.0.2. Set the &#39;ServerName&#39; directive globally to suppress this message  服务器表示他不知道应该如何确定服务的完全限定域名，要你设置 ServerName 来阻止此消息。
+也就是说，去配置文件里把 ServerName 设置一下就行。
+打开 &amp;ldquo;/etc/httpd/conf/httpd.conf&amp;rdquo; 看看
+vim /etc/httpd/conf/httpd.conf  请注意你要是用root以外的用户进行修改操作，则需要在命令前加 sudo ，毕竟 etc 下的文件不是你想改就能改的~
+你会在配置文件中找到如下一段内容：</description>
+    </item>
+    
+    <item>
+      <title>创建能够使用 ssh 登录的容器</title>
+      <link>http://blog.moonlightwatch.me/post/docker-ssh/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/docker-ssh/</guid>
+      <description>环境描述 宿主无所谓，容器我用的是CentOS，事实上用什么都差不多，毕竟ssh服务都是一样的。
+创建容器 我们要保证将宿主某端口映射到容器22端口，以便将容器的ssh服务暴露在外，本文中我选择8022端口。
+命令如下：
+docker run -itd --name=sshcon -p 8022:22 centos /bin/bash  具体我就不解释了，官方文档说的很清楚。
+简述如下：
+创建一个名为：sshcon的容器并映射容器的22端口至宿主的8022端口。
+我选择执行bash的原因只是习惯而已，只要不结束PID为1的bash进程，那么容器就不会停止。
+请注意！ 这样的做法是不推荐的。根据docker官方的说法，应该尽量避免一个容器执行多个任务的情况。然而最终这个容器中会有一个bash进程和一个sshd进程。Each container should have only one concern
+进入容器 进入容器方法很多，我用以下命令：
+docker exec -it sshcon bash  在sshcon容器中执行启动bash并连接到这个进程。如此我们便能够获得容器的shell。
+此时我们会在容器中看到两个bash进程。
+[root@d2c41b67a917 /]# ps -aux USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.1 0.1 11764 1684 ? Ss+ 13:22 0:00 /bin/bash root 13 0.5 0.1 11764 1884 ? Ss 13:22 0:00 bash root 25 0.</description>
+    </item>
+    
+    <item>
+      <title>安装 MongoDB</title>
+      <link>http://blog.moonlightwatch.me/post/install-mongodb/</link>
+      <pubDate>Fri, 02 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/install-mongodb/</guid>
+      <description>下载 你可以从MongoDB Download Center页面中选择合适的版本进行下载。
+我下载的是 &amp;ldquo;RHEL 7 Linux 64-bit x64&amp;rdquo; 版本，因为我的运行环境是CentOS。
+安装 事实上Linux版本的MongoDB并不需要安装，解压即可用。但是我们还是要进行一些传统意义上的安装操作，比如：将文件夹移动到合适的目录中、建立相关的软连接、修改配置文件等等。
+配置文件 有时候在启动时设置启动参数实在太繁琐，使用配置文件能极大地减轻启动时的繁琐操作。 从配置文件启动命令：
+sudo mongod -f mongodb.conf  关于配置文件的详细内容请参考:Configuration File Options
+我挑几个我常用的举个例子
+ 数据路径(dbpath)。参考：storage Options  指定一个保存数据库数据的目录
+storage: dbPath: /data/mongodb/   日志。参考：systemLog Options  指定日志文件，以及添加日志的方式
+systemLog: destination: file path: /log/mongodb/mongodb.log logAppend: true   网络。参考：net Options  在服务器网络环境比较复杂的情况下，指定监听的ip地址及端口
+net: port: 20000 bindIp: 0.0.0.0   认证。参考：security Options  开启权限认证(为了安全，最好开启。设置部分，在后面讲)
+security: authorization: enabled   后台启动。参考：processManagement Options  设置数据库为后台启动</description>
+    </item>
+    
+    <item>
+      <title>pip 安装时 UnicodeDecodeError 错误的解决方法</title>
+      <link>http://blog.moonlightwatch.me/post/pip-install-error/</link>
+      <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/pip-install-error/</guid>
+      <description>错误描述 我在安装pymongo和wrapt时都遇到了同一种错误：
+File &amp;quot;c:\program files\python36\lib\site-packages\pip\compat\__init__.py&amp;quot;, line 73, in console_to_str return s.decode(sys.__stdout__.encoding) UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb6 in position 34: invalid start byte  我的环境配置为：
+ WindowsServer2012 Python3.6.1 pip 9.0.1 PowerShell  解决 在查阅了Stackoverflow以及国内各大论坛后，发现次错误是由于PowerShell(cmd也相同)的编码格式默认为GBK(代码页936)。我的系统语言是中文，所以是GBK，其他系统语言可能默认设置不同。
+使用chcp命令，将编码修改为UTF-8就能解决问题。
+PowerShell命令(cmd中相同)：
+chcp 65001  命令含义是：将代码页转换为65001(UTF-8)
+此时在PowerShell顶部显示Active code page: 65001，这表明正在使用UTF-8编码。
+再用pip安装之前失败的内容即可。
+Active code page: 65001 PS C:\Users\Administrator&amp;gt; pip instal pymongo Collecting pymongo Using cached pymongo-3.4.0.tar.gz Installing collected packages: pymong Running setup.py install for pymong Successfully installed pymongo-3.</description>
+    </item>
+    
+    <item>
+      <title>在 golang 中使用 Json</title>
+      <link>http://blog.moonlightwatch.me/post/golang-json/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/golang-json/</guid>
+      <description>序列化 序列化对象将使用 encoding/json 中的 Marshal 函数。
+函数原型为：func Marshal(v interface{}) ([]byte, error)
+以下是官网给出的例子：
+package main import ( &amp;quot;encoding/json&amp;quot; &amp;quot;fmt&amp;quot; &amp;quot;os&amp;quot; ) func main() { type ColorGroup struct { ID int Name string Colors []string } group := ColorGroup{ ID: 1, Name: &amp;quot;Reds&amp;quot;, Colors: []string{&amp;quot;Crimson&amp;quot;, &amp;quot;Red&amp;quot;, &amp;quot;Ruby&amp;quot;, &amp;quot;Maroon&amp;quot;}, } b, err := json.Marshal(group) if err != nil { fmt.Println(&amp;quot;error:&amp;quot;, err) } os.Stdout.Write(b) }  需要注意的是：json.Marshal返回了[]byte类型，通常情况下，需要将其转换为string类型使用。
+反序列化 反序列化对象将使用 encoding/json 中的 Unmarshal 函数。</description>
+    </item>
+    
+  </channel>
+</rss>

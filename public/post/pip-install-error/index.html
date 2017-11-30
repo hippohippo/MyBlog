@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.31.1" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://blog.moonlightwatch.me/index.xml" rel="alternate" type="application/rss+xml" title="MoonLightWatch的博客" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>pip 安装时 UnicodeDecodeError 错误的解决方法 | MoonLightWatch的博客</title>
+  </head>
+  <body>
+    <div id="wrap">
+      
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-98480829-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://blog.moonlightwatch.me/">MoonLightWatch的博客</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>pip 安装时 UnicodeDecodeError 错误的解决方法</h1>
+      <div class="article-meta">
+        <span class="posttime">2017/05/24</span>
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/pip">pip</a>
+    </li>
+    
+    <li>
+        <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+<div id="share-buttons">
+  <ul>
+    
+    <li>
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <div class="g-plusone" data-size="medium"></div>
+    </li>
+    
+    
+    <li>
+      <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+      <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    </li>
+    
+    
+    <li>
+        <a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share"></a>
+        <script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
+    </li>
+    
+  </ul>
+</div>
+
+
+  </header>
+  <div class="content">
+    
+
+<h2 id="错误描述">错误描述</h2>
+
+<p>我在安装<code>pymongo</code>和<code>wrapt</code>时都遇到了同一种错误：</p>
+
+<pre><code>File &quot;c:\program files\python36\lib\site-packages\pip\compat\__init__.py&quot;, line 73, in console_to_str
+    return s.decode(sys.__stdout__.encoding)
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xb6 in position 34: invalid start byte
+</code></pre>
+
+<p>我的环境配置为：</p>
+
+<ul>
+<li>WindowsServer2012</li>
+<li>Python3.6.1</li>
+<li>pip 9.0.1</li>
+<li>PowerShell</li>
+</ul>
+
+<h2 id="解决">解决</h2>
+
+<p>在查阅了Stackoverflow以及国内各大论坛后，发现次错误是由于PowerShell(cmd也相同)的编码格式默认为GBK(代码页936)。我的系统语言是中文，所以是GBK，其他系统语言可能默认设置不同。</p>
+
+<p>使用<code>chcp</code>命令，将编码修改为UTF-8就能解决问题。</p>
+
+<p>PowerShell命令(cmd中相同)：</p>
+
+<pre><code>chcp 65001
+</code></pre>
+
+<p>命令含义是：将代码页转换为65001(UTF-8)</p>
+
+<p>此时在PowerShell顶部显示<code>Active code page: 65001</code>，这表明正在使用UTF-8编码。</p>
+
+<p>再用pip安装之前失败的内容即可。</p>
+
+<pre><code>Active code page: 65001
+PS C:\Users\Administrator&gt; pip instal pymongo
+Collecting pymongo
+  Using cached pymongo-3.4.0.tar.gz
+Installing collected packages: pymong
+  Running setup.py install for pymong
+Successfully installed pymongo-3.4.0
+</code></pre>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/pip">pip</a>
+    </li>
+    
+    <li>
+        <a href="/tags/%E9%94%99%E8%AF%AF">错误</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      
+      
+<div id="share-buttons">
+  <ul>
+    
+    <li>
+      <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    
+    
+    
+    
+    
+    
+    <li>
+      <div class="g-plusone" data-size="medium"></div>
+    </li>
+    
+    
+    <li>
+      <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+      <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+    </li>
+    
+    
+    <li>
+        <a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share"></a>
+        <script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
+    </li>
+    
+  </ul>
+</div>
+
+
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">Previous</span>
+          <a href="http://blog.moonlightwatch.me/post/golang-json/">在 golang 中使用 Json</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">Next</span>
+          <a href="http://blog.moonlightwatch.me/post/install-mongodb/">安装 MongoDB</a>
+        </div>
+        
+      </div>
+      
+    </div>
+  </footer>
+</div>
+        </div>
+        <div class="sidebar">
+  
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>Author</span>
+    </div>
+    <div id="author">
+      <span>MoonLightWatch</span>
+      <div>
+        
+        
+        <a href="https://github.com/moonlightwatch"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>Categories</span>
+    </div>
+    <div class="categories">
+      <ul>
+        
+        <li>
+          <a href="/categories/apache"><span></span>apache (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/docker"><span></span>docker (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/golang"><span></span>golang (3)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/mongodb"><span></span>mongodb (1)</a>
+        </li>
+        
+        <li>
+          <a href="/categories/python"><span></span>python (1)</a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+  
+  <div class="sidebar-content">
+    <div class="sidebar-header">
+      <span>RSS</span>
+    </div>
+    <div id="rss">
+      <a href="http://blog.moonlightwatch.me/index.xml" type="application/rss+xml" target="_blank">
+        <i class="fa fa-rss-square fa-2x" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <footer>
+        <div id="site-footer-wrap">
+          <div id="site-footer">
+            <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+            <span>
+              
+              Copyright (c) 2017, <a href="http://blog.moonlightwatch.me/">MoonLightWatch的博客</a>
+              
+            </span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+

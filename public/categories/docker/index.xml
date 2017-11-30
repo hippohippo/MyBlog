@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on MoonLightWatch的博客</title>
+    <link>http://blog.moonlightwatch.me/categories/docker/</link>
+    <description>Recent content in Docker on MoonLightWatch的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/categories/docker/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>创建能够使用 ssh 登录的容器</title>
+      <link>http://blog.moonlightwatch.me/post/docker-ssh/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>http://blog.moonlightwatch.me/post/docker-ssh/</guid>
+      <description>环境描述 宿主无所谓，容器我用的是CentOS，事实上用什么都差不多，毕竟ssh服务都是一样的。
+创建容器 我们要保证将宿主某端口映射到容器22端口，以便将容器的ssh服务暴露在外，本文中我选择8022端口。
+命令如下：
+docker run -itd --name=sshcon -p 8022:22 centos /bin/bash  具体我就不解释了，官方文档说的很清楚。
+简述如下：
+创建一个名为：sshcon的容器并映射容器的22端口至宿主的8022端口。
+我选择执行bash的原因只是习惯而已，只要不结束PID为1的bash进程，那么容器就不会停止。
+请注意！ 这样的做法是不推荐的。根据docker官方的说法，应该尽量避免一个容器执行多个任务的情况。然而最终这个容器中会有一个bash进程和一个sshd进程。Each container should have only one concern
+进入容器 进入容器方法很多，我用以下命令：
+docker exec -it sshcon bash  在sshcon容器中执行启动bash并连接到这个进程。如此我们便能够获得容器的shell。
+此时我们会在容器中看到两个bash进程。
+[root@d2c41b67a917 /]# ps -aux USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND root 1 0.1 0.1 11764 1684 ? Ss+ 13:22 0:00 /bin/bash root 13 0.5 0.1 11764 1884 ? Ss 13:22 0:00 bash root 25 0.</description>
+    </item>
+    
+  </channel>
+</rss>
