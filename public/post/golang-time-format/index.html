@@ -115,22 +115,22 @@ ga('send', 'pageview');
 <p>在 <a href="https://golang.org/src/time/format.go">format.go</a> 的源码中我们可以找到一些预定的格式，源码摘抄如下：</p>
 
 <pre><code>const (
-    ANSIC       = &quot;Mon Jan _2 15:04:05 2006&quot;
-    UnixDate    = &quot;Mon Jan _2 15:04:05 MST 2006&quot;
-    RubyDate    = &quot;Mon Jan 02 15:04:05 -0700 2006&quot;
-    RFC822      = &quot;02 Jan 06 15:04 MST&quot;
-    RFC822Z     = &quot;02 Jan 06 15:04 -0700&quot; // RFC822 with numeric zone
-    RFC850      = &quot;Monday, 02-Jan-06 15:04:05 MST&quot;
-    RFC1123     = &quot;Mon, 02 Jan 2006 15:04:05 MST&quot;
-    RFC1123Z    = &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; // RFC1123 with numeric zone
-    RFC3339     = &quot;2006-01-02T15:04:05Z07:00&quot;
-    RFC3339Nano = &quot;2006-01-02T15:04:05.999999999Z07:00&quot;
-    Kitchen     = &quot;3:04PM&quot;
-    // Handy time stamps.
-    Stamp      = &quot;Jan _2 15:04:05&quot;
-    StampMilli = &quot;Jan _2 15:04:05.000&quot;
-    StampMicro = &quot;Jan _2 15:04:05.000000&quot;
-    StampNano  = &quot;Jan _2 15:04:05.000000000&quot;
+  	ANSIC       = &quot;Mon Jan _2 15:04:05 2006&quot;
+  	UnixDate    = &quot;Mon Jan _2 15:04:05 MST 2006&quot;
+  	RubyDate    = &quot;Mon Jan 02 15:04:05 -0700 2006&quot;
+  	RFC822      = &quot;02 Jan 06 15:04 MST&quot;
+  	RFC822Z     = &quot;02 Jan 06 15:04 -0700&quot; // RFC822 with numeric zone
+  	RFC850      = &quot;Monday, 02-Jan-06 15:04:05 MST&quot;
+  	RFC1123     = &quot;Mon, 02 Jan 2006 15:04:05 MST&quot;
+  	RFC1123Z    = &quot;Mon, 02 Jan 2006 15:04:05 -0700&quot; // RFC1123 with numeric zone
+  	RFC3339     = &quot;2006-01-02T15:04:05Z07:00&quot;
+  	RFC3339Nano = &quot;2006-01-02T15:04:05.999999999Z07:00&quot;
+  	Kitchen     = &quot;3:04PM&quot;
+  	// Handy time stamps.
+  	Stamp      = &quot;Jan _2 15:04:05&quot;
+  	StampMilli = &quot;Jan _2 15:04:05.000&quot;
+  	StampMicro = &quot;Jan _2 15:04:05.000000&quot;
+  	StampNano  = &quot;Jan _2 15:04:05.000000000&quot;
 )
 </code></pre>
 
@@ -149,9 +149,9 @@ ga('send', 'pageview');
 <p>下面的代码摘自golang源代码 <a href="https://golang.org/src/time/format.go">关于时间格式化的部分</a></p>
 
 <pre><code>// String returns the time formatted using the format string
-//  &quot;2006-01-02 15:04:05.999999999 -0700 MST&quot;
+//	&quot;2006-01-02 15:04:05.999999999 -0700 MST&quot;
 func (t Time) String() string {
-    return t.Format(&quot;2006-01-02 15:04:05.999999999 -0700 MST&quot;)
+  	return t.Format(&quot;2006-01-02 15:04:05.999999999 -0700 MST&quot;)
 }
 </code></pre>
 
@@ -166,19 +166,19 @@ func (t Time) String() string {
 func nextStdChunk(layout string) (prefix string, std int, suffix string) {
 ...
         case '2': // 2006, 2
-            if len(layout) &gt;= i+4 &amp;&amp; layout[i:i+4] == &quot;2006&quot; {
-                return layout[0:i], stdLongYear, layout[i+4:]
-            }
-            return layout[0:i], stdDay, layout[i+1:]
+  			if len(layout) &gt;= i+4 &amp;&amp; layout[i:i+4] == &quot;2006&quot; {
+  				return layout[0:i], stdLongYear, layout[i+4:]
+  			}
+  			return layout[0:i], stdDay, layout[i+1:]
   
-        case '_': // _2, _2006
-            if len(layout) &gt;= i+2 &amp;&amp; layout[i+1] == '2' {
-                //_2006 is really a literal _, followed by stdLongYear
-                if len(layout) &gt;= i+5 &amp;&amp; layout[i+1:i+5] == &quot;2006&quot; {
-                    return layout[0 : i+1], stdLongYear, layout[i+5:]
-                }
-                return layout[0:i], stdUnderDay, layout[i+2:]
-            }
+  		case '_': // _2, _2006
+  			if len(layout) &gt;= i+2 &amp;&amp; layout[i+1] == '2' {
+  				//_2006 is really a literal _, followed by stdLongYear
+  				if len(layout) &gt;= i+5 &amp;&amp; layout[i+1:i+5] == &quot;2006&quot; {
+  					return layout[0 : i+1], stdLongYear, layout[i+5:]
+  				}
+  				return layout[0:i], stdUnderDay, layout[i+2:]
+  			}
 
 ...
 }

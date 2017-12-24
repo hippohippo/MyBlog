@@ -15,7 +15,7 @@
       <pubDate>Wed, 24 May 2017 00:00:00 +0000</pubDate>
       
       <guid>http://blog.moonlightwatch.me/post/pip-install-error/</guid>
-      <description>错误描述 我在安装pymongo和wrapt时都遇到了同一种错误：
+      <description>错误描述- 我在安装pymongo和wrapt时都遇到了同一种错误：
 File &amp;quot;c:\program files\python36\lib\site-packages\pip\compat\__init__.py&amp;quot;, line 73, in console_to_str return s.decode(sys.__stdout__.encoding) UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xb6 in position 34: invalid start byte  我的环境配置为：
  WindowsServer2012 Python3.6.1 pip 9.0.1 PowerShell  解决 在查阅了Stackoverflow以及国内各大论坛后，发现次错误是由于PowerShell(cmd也相同)的编码格式默认为GBK(代码页936)。我的系统语言是中文，所以是GBK，其他系统语言可能默认设置不同。
 使用chcp命令，将编码修改为UTF-8就能解决问题。
