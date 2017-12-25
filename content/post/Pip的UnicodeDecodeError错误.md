@@ -7,7 +7,7 @@ categories = ["python"]
 tags = ["pip", "错误",]
 +++
 
-## 错误描述-
+## 错误描述
 
 我在安装`pymongo`和`wrapt`时都遇到了同一种错误：
 
