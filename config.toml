@@ -39,3 +39,12 @@ copyright = "&copy; Copyright MoonLightWatch"
   logo = "https://avatars2.githubusercontent.com/u/11363583?s=460&v=4"
   favicon = "/images/favicon.ico"
 
+[[menu.main]]
+    name = "Blog"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 2
