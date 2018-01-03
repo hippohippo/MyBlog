@@ -48,3 +48,19 @@ copyright = "&copy; Copyright MoonLightWatch"
     name = "About"
     url = "/about"
     weight = 2
+
+[[menu.main]]
+    identifier = "theme"
+    name = "/theme"
+    weight = 3
+
+[[menu.main]]
+    parent = "theme"
+    name = "creating-a-new-theme"
+    url = "/posts/creating-a-new-theme"
+    weight = 1
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = 4
