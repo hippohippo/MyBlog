@@ -36,6 +36,6 @@ copyright = "&copy; Copyright MoonLightWatch"
   # Short subtitle/tagline. This is displayed in the header.
   subtitle = "记录我不曾知道的"
   # Logo image. This is displayed ogp image.
-  logo = "/path/to/logo"
-  favicon = "/path/to/favicon"
+  logo = "https://avatars2.githubusercontent.com/u/11363583?s=460&v=4"
+  favicon = "/images/favicon.ico"
 
