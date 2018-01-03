@@ -1,6 +1,5 @@
 +++
 date = "2017-07-15"
-draft = false
 title = "golang 的时间格式化操作"
 slug = "golang-time-format"
 categories = ["golang"]

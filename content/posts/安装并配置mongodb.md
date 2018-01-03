@@ -1,6 +1,5 @@
 +++
 date = "2017-06-02"
-draft = false
 title = "安装 MongoDB"
 slug = "install-mongodb"
 categories = ["mongodb"]

@@ -1,6 +1,5 @@
 +++
 date = "2017-07-12"
-draft = false
 title = "安装ApacheWeb服务器 —— httpd"
 slug = "install-httpd"
 categories = ["Apache"]

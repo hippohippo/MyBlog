@@ -1,6 +1,5 @@
 +++
 date = "2017-05-24"
-draft = false
 title = "pip 安装时 UnicodeDecodeError 错误的解决方法"
 slug = "pip-install-error"
 categories = ["python"]

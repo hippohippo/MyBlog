@@ -1,6 +1,5 @@
 +++
 date = "2017-07-11"
-draft = false
 title = "创建能够使用 ssh 登录的容器"
 slug = "docker-ssh"
 categories = ["docker"]
