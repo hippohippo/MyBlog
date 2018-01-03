@@ -40,27 +40,21 @@ copyright = "&copy; Copyright MoonLightWatch"
   favicon = "/images/favicon.ico"
 
 [[menu.main]]
-    name = "Blog"
+    name = "主页"
     url = "/"
     weight = 1
 
 [[menu.main]]
-    name = "About"
-    url = "/about"
+    name = "Categories"
+    url = "/categories"
     weight = 2
-
-[[menu.main]]
-    identifier = "theme"
-    name = "/theme"
-    weight = 3
-
-[[menu.main]]
-    parent = "theme"
-    name = "creating-a-new-theme"
-    url = "/posts/creating-a-new-theme"
-    weight = 1
 
 [[menu.main]]
     name = "Tags"
     url = "/tags"
+    weight = 3
+
+[[menu.main]]
+    name = "关于"
+    url = "/about"
     weight = 4
