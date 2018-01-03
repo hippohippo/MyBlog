@@ -30,7 +30,7 @@ copyright = "&copy; Copyright MoonLightWatch"
   ga_api_key = "UA-98480829-1"
   author = "MoonLightWatch"
   authorwebsite = "blog.moonlightwatch.me"
-  avatar = "/path/to/avatar"
+  avatar = "https://avatars2.githubusercontent.com/u/11363583?s=460&v=4"
   contact = "mailto:moonlightwatch@hotmail.com"
   bio = "一名程序员"
   # Short subtitle/tagline. This is displayed in the header.
