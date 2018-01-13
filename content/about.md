@@ -26,8 +26,10 @@ tags = []
 
 #### 技术
 
-- C# WinForm   ![](http://progressed.io/bar/80)
-- Python Flask ![](http://progressed.io/bar/60)
+- C#.Net       ![](http://progressed.io/bar/80)
+- Python       ![](http://progressed.io/bar/60)
 - golang       ![](http://progressed.io/bar/40)
 - JavaScript   ![](http://progressed.io/bar/30)
+- docker       ![](http://progressed.io/bar/60)
+- mongodb      ![](http://progressed.io/bar/70)
 
