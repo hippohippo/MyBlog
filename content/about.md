@@ -23,6 +23,8 @@ tags = []
 #### 简介
 无名小卒，2016年大学毕业，痴活二十余载，无甚建树。GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 
+工作两年，从事C#WinForm开发工作，具体负责一些窗体控件的开发和维护。
+
 #### 技术
 - C#WinForm ![](http://progressed.io/bar/80)
 - mongodb ![](http://progressed.io/bar/70)
