@@ -22,9 +22,12 @@ tags = []
 
 #### 简介
 
-无名小卒，2016年大学毕业，痴活24载，无甚建树。GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
+无名小卒，2016年大学毕业，痴活二十余载，无甚建树。GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 
 #### 技术
 
-![](http://progressed.io/bar/88)
+- C# WinForm ![](http://progressed.io/bar/80)
+- Python Flask ![](http://progressed.io/bar/60)
+- golang ![](http://progressed.io/bar/40)
+- JavaScript ![](http://progressed.io/bar/30)
 
