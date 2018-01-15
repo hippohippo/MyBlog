@@ -27,7 +27,7 @@ else:
 ```
 
 事实上上述两种方法都能达到效果，但是按照规范来说，应该使用第一种方法，具体规范如下：
->For sequences, (strings, lists, tuples), use the fact that empty sequences are false.   
+> For sequences, (strings, lists, tuples), use the fact that empty sequences are false.   
 >```  
 >Yes: if not seq:  
 >    if seq:  
