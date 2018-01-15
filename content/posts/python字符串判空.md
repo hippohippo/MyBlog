@@ -29,13 +29,13 @@ else:
 事实上上述两种方法都能达到效果，但是按照规范来说，应该使用第一种方法，具体规范如下：
 
 > For sequences, (strings, lists, tuples), use the fact that empty sequences are false.   
-> ```
+> ```  
 > Yes: if not seq:  
 >     if seq:  
 > No: if len(seq):  
 >     if not len(seq):
-> ```
-
+> ```  
+> 
 
 摘自：[PEP 8 -- Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
 
