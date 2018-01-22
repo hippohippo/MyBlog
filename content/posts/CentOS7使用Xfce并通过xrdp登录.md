@@ -1,7 +1,7 @@
 +++
 date = "2018-01-22"
 title = "CentOS 使用 Xfce 桌面并通过 xrdp 登录"
-slug = "golang-json-error"
+slug = "centos-xfce-xrdp"
 categories = ["CentOS"]
 tags = ["Xfce", "xrdp",]
 +++
