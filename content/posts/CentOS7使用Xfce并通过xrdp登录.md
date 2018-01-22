@@ -33,7 +33,7 @@ systemctl enable xrdp
 firewall-cmd --add-port=3389/tcp --permanent
 firewall-cmd --reload
 ```
-或者干掉防火墙  
+或者干掉防火墙。  
 
 此时，已经可以通过远程桌面连接了，但是使用的是默认的Gnome桌面。
 
