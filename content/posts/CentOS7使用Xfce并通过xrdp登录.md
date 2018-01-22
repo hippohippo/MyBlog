@@ -62,3 +62,11 @@ chmod +x ~/.Xclients
 ```
 systemctl restart xrdp
 ```
+
+此时，我们通过远程桌面登录后，默认显示的就是Xfce桌面了。
+
+### 问题
+
+上述方法中，并不能一劳永逸的解决默认桌面的问题。
+
+只有Home目录中 `.Xclients` 文件指定了Xfce桌面的用户，登录后会默认显示Xfce桌面。其他用户，需要逐一配置。
