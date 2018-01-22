@@ -6,19 +6,19 @@ categories = ["CentOS"]
 tags = ["Xfce", "xrdp",]
 +++
 
-### 基础环境
+## 基础环境
 - CentOS 7.1 最小化安装
 
-### 安装步骤
+## 安装步骤
 
-#### 安装桌面支持
+### 安装桌面支持
 首先安装桌面支持
 ```
 yum groupinstall "Server with GUI"
 ```
 此时，系统默认使用Gnome桌面。
 
-#### 安装xrdp和vnc
+### 安装xrdp和vnc
 ```
 yum install xrdp tigervnc
 ```
@@ -28,20 +28,21 @@ systemctl start xrdp
 systemctl enable xrdp
 ```
 
-#### 配置防火墙
+### 配置防火墙
 ```
 firewall-cmd --add-port=3389/tcp --permanent
 firewall-cmd --reload
 ```
-或者干掉防火墙
+或者干掉防火墙  
+
 此时，已经可以通过远程桌面连接了，但是使用的是默认的Gnome桌面。
 
-#### 安装Xfce
+### 安装Xfce
 ```
 yum groupinstall Xfce
 ```
 
-#### 配置Xfce为默认桌面
+### 配置Xfce为默认桌面
 **以下内容参考[XRDP and xfce](https://www.centos.org/forums/viewtopic.php?t=51046)**
 
 打开用户目录下的.Xclients文件，原本没有的话创建一个
@@ -65,7 +66,7 @@ systemctl restart xrdp
 
 此时，我们通过远程桌面登录后，默认显示的就是Xfce桌面了。
 
-### 问题
+## 问题
 
 上述方法中，并不能一劳永逸的解决默认桌面的问题。
 
