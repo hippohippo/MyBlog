@@ -5,7 +5,7 @@ theme= "hugo_theme_pickles"
 copyright = "&copy; Copyright MoonLightWatch"
 
 [params]
-  paginate = 10
+  paginate = 8
   # Social accounts. Link to these accounts are displayed in the header and
   # footer
   #twitter = "Your Twitter username"
