@@ -3,7 +3,7 @@ date = "2018-01-15"
 title = "Python中的字符串判空"
 slug = "python-string-check-empty"
 categories = ["python"]
-tags = ["string",]
+tags = ["string"]
 +++
 
 ## Python中的字符串判空
