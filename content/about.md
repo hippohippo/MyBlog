@@ -1,10 +1,9 @@
-+++
-date = "2017-01-01"
-title = "关于"
-slug = "about"
-categories = []
-tags = []
-+++
+---
+date : 2017-01-01
+title : "关于"
+categories : []
+tags : []
+---
 
 ## 关于
 

@@ -1,9 +1,8 @@
 ---
-date = "2018-01-15"
-title = "Python中的字符串判空"
-slug = "python-string-check-empty"
-categories = ["python"]
-tags = ["string"]
+date : 2018-01-15
+title : "Python中的字符串判空"
+categories : ["python"]
+tags : ["string"]
 ---
 
 ## Python中的字符串判空
