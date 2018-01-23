@@ -1,6 +1,6 @@
 +++
 date = "2018-01-24"
-title = "sudo找不到命令go"
+title = "sudo 找不到命令 go"
 slug = "sudo-cannot-find-commond-go"
 categories = ["Linux"]
 tags = ["golang", "env",]
