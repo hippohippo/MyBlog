@@ -17,7 +17,7 @@ tags : []
 
 #### 生成及托管
 
-[本站（blog.moonlightwatch.me）](http://blog.moonlightwatch.me/)静态站点由[Hugo](https://gohugo.io/)生成，Hugo主题使用 [even](https://themes.gohugo.io/hugo-theme-even/) ，托管于[GitHubPages](https://pages.github.com/)。
+[本站（blog.moonlightwatch.me）](http://blog.moonlightwatch.me/)静态站点由[Hugo](https://gohugo.io/)生成，Hugo主题使用 [Even](https://themes.gohugo.io/hugo-theme-even/) ，托管于[GitHubPages](https://pages.github.com/)。
 
 ### 本人
 
