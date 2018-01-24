@@ -1,5 +1,5 @@
 ---
-date : 2018-01-24
+date : 2018-01-23
 title : "sudo 找不到命令 go"
 slug : "sudo-cannot-find-commond-go"
 categories : ["Linux"]
