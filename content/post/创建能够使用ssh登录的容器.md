@@ -67,6 +67,11 @@ yum install openssh-server -y
 ```
 /usr/sbin/sshd -D
 ```
+如果这个命令长时间没有退出，则用
+```
+nohup /usr/sbin/sshd -D &
+```
+让这个命令后台运行。
 
 如果执行命令后，提示无法加载主机密钥，类似如下提示：
 
@@ -88,6 +93,10 @@ ssh-keygen -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key
 
 ```
 /usr/sbin/sshd -D
+```
+或者 kill 掉原来的sshd进程。再次
+```
+nohup /usr/sbin/sshd -D &
 ```
 
 不过，貌似不重启也能用。
