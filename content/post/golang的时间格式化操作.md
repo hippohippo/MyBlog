@@ -1,10 +1,10 @@
-+++
-date = "2017-07-15"
-title = "golang 的时间格式化操作"
-slug = "golang-time-format"
-categories = ["golang"]
-tags = ["时间", "格式化",]
-+++
+---
+date : 2017-07-15
+title : "golang 的时间格式化操作"
+slug : "golang-time-format"
+categories : ["golang"]
+tags : ["时间", "格式化",]
+---
 
 ## 怎么做
 

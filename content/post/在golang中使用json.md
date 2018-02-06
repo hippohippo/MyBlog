@@ -1,10 +1,10 @@
-+++
-date = "2017-05-10"
-title = "在 golang 中使用 Json"
-slug = "golang-json"
-categories = ["golang"]
-tags = ["json"]
-+++
+---
+date : 2017-05-10
+title : "在 golang 中使用 Json"
+slug : "golang-json"
+categories : ["golang"]
+tags : ["json"]
+---
 
 ## 序列化
 

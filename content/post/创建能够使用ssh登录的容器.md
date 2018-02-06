@@ -1,10 +1,10 @@
-+++
-date = "2017-07-11"
-title = "创建能够使用 ssh 登录的容器"
-slug = "docker-ssh"
-categories = ["docker"]
-tags = ["ssh", "容器",]
-+++
+---
+date : 2017-07-11
+title : "创建能够使用 ssh 登录的容器"
+slug : "docker-ssh"
+categories : ["docker"]
+tags : ["ssh", "容器",]
+---
 
 ## 环境描述
 

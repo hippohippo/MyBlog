@@ -1,10 +1,10 @@
-+++
-date = "2017-07-12"
-title = "安装ApacheWeb服务器 —— httpd"
-slug = "install-httpd"
-categories = ["Apache"]
-tags = ["httpd"]
-+++
+---
+date : 2017-07-12
+title : "安装ApacheWeb服务器 —— httpd"
+slug : "install-httpd"
+categories : ["Apache"]
+tags : ["httpd"]
+---
 
 ## 环境
 

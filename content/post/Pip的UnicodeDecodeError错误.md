@@ -1,10 +1,10 @@
-+++
-date = "2017-05-24"
-title = "pip 安装时 UnicodeDecodeError 错误的解决方法"
-slug = "pip-install-error"
-categories = ["python"]
-tags = ["pip", "错误",]
-+++
+---
+date : 2017-05-24
+title : "pip 安装时 UnicodeDecodeError 错误的解决方法"
+slug : "pip-install-error"
+categories : ["python"]
+tags : ["pip", "错误",]
+---
 
 ## 错误描述-
 

@@ -1,10 +1,10 @@
-+++
-date = "2017-08-01"
-title = "Golang Json 反序列化 UTF-8 字符串遇到的错误"
-slug = "golang-json-error"
-categories = ["golang"]
-tags = ["json", "序列化",]
-+++
+---
+date : 2017-08-01
+title : "Golang Json 反序列化 UTF-8 字符串遇到的错误"
+slug : "golang-json-error"
+categories : ["golang"]
+tags : ["json", "序列化",]
+---
 
 
 ## 过程

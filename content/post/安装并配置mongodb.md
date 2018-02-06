@@ -1,10 +1,10 @@
-+++
-date = "2017-06-02"
-title = "安装 MongoDB"
-slug = "install-mongodb"
-categories = ["mongodb"]
-tags = ["安装"]
-+++
+---
+date : 2017-06-02
+title : "安装 MongoDB"
+slug : "install-mongodb"
+categories : ["mongodb"]
+tags : ["安装"]
+---
 
 ## 下载
 你可以从[MongoDB Download Center](https://www.mongodb.com/download-center?jmp=nav#community)页面中选择合适的版本进行下载。
