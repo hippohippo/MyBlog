@@ -50,7 +50,7 @@ Defaults    secure_path = /home/moonlightwatch/go/bin:/sbin:/bin:/usr/sbin:/usr/
 
 ### 其他问题
 
-当我们使用了自己 `GOPATH` 中的包时，`sudo go run xxxx` 并不会在我们环境变量制定的目录去查找包。
+当我们使用了自己 `GOPATH` 中的包时，`sudo go run xxxx` 并不会在我们环境变量指定的目录去查找包。
 
 我们需要设置 `/etc/sudoers` 文件中的 `Defaults    env_keep` 项。向其中加入我们的 `GOPATH` 环境变量。
 
