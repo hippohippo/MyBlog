@@ -22,9 +22,11 @@ tags : []
 ### 本人
 
 #### 简介
-无名小卒，2016年大学毕业，痴活二十余载，无甚建树。GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
+GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 
-工作两年，从事C#WinForm开发工作，具体负责一些窗体控件的开发和维护。
+无名小卒，2016年大学毕业，工作两年，从事C#WinForm开发工作，具体负责一些窗体控件的开发和维护。
+
+痴活二十余载，无甚建树。文涛难以安天下，武略不足定乾坤。幸有一技之长，独善其身有余。
 
 #### 技术
 - C#WinForm ![](http://progressed.io/bar/80)
