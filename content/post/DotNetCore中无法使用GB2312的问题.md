@@ -19,6 +19,7 @@ System.Text.Encoding.GetEncoding("GB2312")
 System.Text.Encoding.GetEncoding("GBK")
 ```
 会抛出异常：
+
 > Unhandled Exception: System.ArgumentException: 'GB2312' is not a supported encoding name. For information on defining a custom encoding, see the documentation for the Encoding.RegisterProvider method.
 
 或者
