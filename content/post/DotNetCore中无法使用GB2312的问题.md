@@ -50,7 +50,7 @@ System.Text.Encoding.GetEncodings();
 
 > Provides support for code-page based encodings, including Windows-1252, Shift-JIS, and GB2312.
 
-所以导入这个包我们将能使用 GB2312 编码。
+所以导入这个包之后，我们将能使用 GB2312 编码。
 
 在 `.csproj` 文件中应添加如下代码：
 
