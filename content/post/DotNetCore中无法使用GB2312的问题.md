@@ -66,7 +66,7 @@ System.Text.Encoding.GetEncodings();
 dotnet add package System.Text.Encoding.CodePages --version 4.4.0
 ```
 
-当然，其中的版本号请自行修改为最新。此时（2018.02.22）最新版是4.4.0 。
+当然，其中的版本号需要自行修改为最新。此时（2018.02.22）最新版是4.4.0 。
 
 别忘了执行 `dotnet restore` 。
 
