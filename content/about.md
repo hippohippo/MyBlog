@@ -24,7 +24,7 @@ tags : []
 #### 简介
 GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 
-无名小卒，2016年大学毕业，工作两年，从事C#WinForm开发工作，具体负责一些窗体控件的开发和维护。
+无名小卒，2016年大学毕业于 *西安文理学院* *软件工程专业* 获 “工学学士” 学位，工作两年，从事C#WinForm开发工作，具体负责一些窗体控件的开发和维护。
 
 痴活二十余载，无甚建树。文涛难以安天下，武略不足定乾坤。幸有一技之长，独善其身有余。
 
@@ -40,6 +40,12 @@ GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 - golang ![](http://progressed.io/bar/40)
 - C/C++ ![](http://progressed.io/bar/40)
 - JavaScript ![](http://progressed.io/bar/30)
+
+#### 项目经验
+
+- 基于GDI+的流程图基础控件
+
+> 控件完全基于GDI+绘制，提供基础图元（直线、折线、矩形、圆形）的绘制操作，提供基础变换操作（平移、缩放），提供简单的图形布局操作（基于树形结构的布局）。
 
 #### 联系
 moonlightwatch@hotmail.com
