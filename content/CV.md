@@ -15,6 +15,13 @@ tags : []
 
 **个人主页** ： [blog.moonlightwatch.me](http://blog.moonlightwatch.me)
 
+## 技能
+
+- .Net 开发，WinForm方向，其他的方向也都会点（.netcore，UWP什么的）
+- 主流Linux系统的日常使用以及简单的服务部署
+- 熟悉golang语言，能独立完成功能模块
+- 熟悉python语言，能独立编写一些自动化脚本 
+
 ## 项目经验
 
 ### 1、 基于GDI+的基础流程图控件
@@ -56,4 +63,4 @@ tags : []
 
 ## 个人描述
 
-吃苦耐劳，乐于合作，有钻研精神。
+能吃苦耐劳，且乐于合作，富有钻研精神。
