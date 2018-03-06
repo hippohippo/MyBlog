@@ -41,12 +41,6 @@ GitHub主页：[MoonLightWatch](https://github.com/moonlightwatch)
 - C/C++ ![](http://progressed.io/bar/40)
 - JavaScript ![](http://progressed.io/bar/30)
 
-#### 项目经验
-
-- 基于GDI+的流程图基础控件
-
-> 控件完全基于GDI+绘制，提供基础图元（直线、折线、矩形、圆形）的绘制操作，提供基础变换操作（平移、缩放），提供简单的图形布局操作（基于树形结构的布局）。
-
 #### 联系
 moonlightwatch@hotmail.com
 
