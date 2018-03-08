@@ -2,7 +2,7 @@
 date : 2018-02-22
 title : ".Net Core 中使用GB2312编码报错的问题"
 slug : "dotnetcore-use-gb2312"
-categories : ["C#"]
+categories : [".Net"]
 tags : ["dotnetcore", "gb2312", "error",]
 ---
 
