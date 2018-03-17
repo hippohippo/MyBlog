@@ -1,5 +1,5 @@
 
-baseURL = "http://blog.moonlightwatch.me/"
+baseURL = "https://blog.moonlightwatch.me/"
 languageCode = "en"
 defaultContentLanguage = "en"
 title = "MoonLightWatch的博客"
