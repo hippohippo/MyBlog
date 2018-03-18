@@ -50,6 +50,12 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   identifier = "about"
   url = "/about/"
 
+[[menu.main]]
+  name = "陈列柜"
+  weight = 60
+  identifier = "showbox"
+  url = "/showbox/"
+
 [params]
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
   since = "2017"            # Site creation time          # 站点建立时间
