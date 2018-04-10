@@ -15,6 +15,7 @@ tags : ["Xfce", "xrdp",]
 
 ### 安装桌面支持
 首先安装桌面支持
+
 ```
 yum groupinstall "Server with GUI"
 ```
