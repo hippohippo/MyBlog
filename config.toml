@@ -1,7 +1,7 @@
 
 baseURL = "https://blog.moonlightwatch.me/"
 languageCode = "en"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 title = "MoonLightWatch的博客"
 enableRobotsTXT = true
 enableEmoji = true
